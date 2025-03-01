@@ -125,7 +125,7 @@ int main(int argc, char* argv[]) {
         } else if (pid == 0) {  // Διαδικασία παιδιού
             close(pipe_USR2.fd[0]);  // Κλείνουμε το read end του pipe USR2
 
-            // Εκτέλεση του builder μέσω execl7
+            // Εκτέλεση του builder μέσω execl
                 execl("./builder",
                 "builder",    
                 "-p", intToStr(pipe_USR2.fd[1]),     
@@ -138,7 +138,7 @@ int main(int argc, char* argv[]) {
             return 3;
         }
     }
-
+    
     // Υπολογισμός του συνολικού αριθμού γραμμών του αρχείου
     int totalLines = countLines(params.inputFile);
     if (totalLines < 0) {  // Έλεγχος αποτυχίας ανάγνωσης
