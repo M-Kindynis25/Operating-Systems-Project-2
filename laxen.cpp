@@ -125,7 +125,7 @@ int main(int argc, char* argv[]) {
         } else if (pid == 0) {  // Διαδικασία παιδιού
             close(pipe_USR2.fd[0]);  // Κλείνουμε το read end του pipe USR2
 
-            // Εκτέλεση του builder μέσω execl
+            // Εκτέλεση του builder μέσω execl7
                 execl("./builder",
                 "builder",    
                 "-p", intToStr(pipe_USR2.fd[1]),     
